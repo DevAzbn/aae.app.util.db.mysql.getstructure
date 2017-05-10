@@ -136,9 +136,17 @@ azbn.mdl('db/mysql', db_conf).connect(function(err){
 						
 						app.saveJSON(db_conf.database, result);
 						
+						azbn.echo('Saved to ' + db_conf.database);
+						
 						azbn.mdl('db/mysql').end();
 						
 					});
+					
+				} else {
+					
+					azbn.echo('Empty DB: ' + db_conf.database);
+					
+					azbn.mdl('db/mysql').end();
 					
 				}
 				

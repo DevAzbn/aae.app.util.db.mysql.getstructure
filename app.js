@@ -58,7 +58,7 @@ azbn.mdl('db/mysql', db_conf).connect(function(err){
 								
 								result.tables[table_name] = {
 									row_count : 0,
-									fields : [],
+									fields : {},
 								};
 								
 								async_arr.push(function(callback){
@@ -105,7 +105,9 @@ azbn.mdl('db/mysql', db_conf).connect(function(err){
 												
 												var res = _rows[_i];
 												
-												result.tables[table_name].fields.push(res);
+												//result.tables[table_name].fields.push(res);
+												
+												result.tables[table_name].fields[res.Field] = res;
 												
 												/*
 												result.tables[table_name].fields.push({
